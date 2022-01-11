@@ -7,39 +7,11 @@ export const menu: CoreMenu[] = [
     id: 'dashboard',
     title: 'Dashboard',
     translate: 'MENU.DASHBOARD.COLLAPSIBLE',
-    type: 'collapsible',
+    type: 'item',
    // role: ['Admin'], //? To hide collapsible based on user role
     icon: 'home',
-    badge: {
-     // title: '2',
-      title: '',
-      translate: 'MENU.DASHBOARD.BADGE',
-      //classes: 'badge-light-warning badge-pill'
-      classes: ''
-
-    },
-    children: [
-      
-      {
-        // If role is not assigned will be display to all
-        id: 'ecommerce',
-        title: 'eCommerce',
-        translate: 'MENU.DASHBOARD.ECOMMERCE',
-        type: 'item',
-        icon: 'circle',
-        url: 'dashboard/ecommerce'
-      },
-      {
-        id: 'analytics',
-        title: 'Analytics',
-        translate: 'MENU.DASHBOARD.ANALYTICS',
-        
-        role: ['Admin'], //? To set multiple role: ['Admin', 'Client']
-        type: 'item',
-        icon: 'circle',
-        url: 'dashboard/analytics'
-      }
-    ]
+   
+    url:'/dashboard/ecommerce'
   },
    /* // Apps & Pages
   {

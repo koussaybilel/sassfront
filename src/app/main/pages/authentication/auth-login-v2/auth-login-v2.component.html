@@ -2,7 +2,7 @@
   <div class="auth-inner row m-0">
     <!-- Brand logo--><a class="brand-logo" href="javascript:void(0);">
       <img src="{{ coreConfig.app.appLogoImage }}" alt="brand-logo" height="28" />
-      <h2 class="brand-text text-primary ml-1">Delisas</h2></a
+      <h2 class="brand-text text-primary ml-1">SA EXPRESS</h2></a
     >
     <!-- /Brand logo-->
     <!-- Left Text-->
@@ -23,8 +23,8 @@
     <!-- Login-->
     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
       <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-        <h2 class="card-title font-weight-bold mb-1">Welcome to Delisas! 👋</h2>
-        <p class="card-text mb-2">Please sign-in to your account </p>
+        <h2 class="card-title font-weight-bold mb-1">Bienvenue à SA EXPRESS! 👋</h2>
+        <p class="card-text mb-2">Connectez-vous à votre compte </p>
         
         <ngb-alert [type]="'danger'" [dismissible]="false" *ngIf="error">
           <div class="alert-body">
@@ -34,13 +34,13 @@
 
         <form class="auth-login-form mt-2" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label class="form-label" for="login-username">Username</label>
+            <label class="form-label" for="login-username">Nom d'utilisateur</label>
             <input
               type="text"
               formControlName="username"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
-              placeholder="username"
+              placeholder="Nom d'utilisateur"
               aria-describedby="login-username"
               autofocus=""
               tabindex="1"
@@ -52,8 +52,8 @@
           </div>
           <div class="form-group">
             <div class="d-flex justify-content-between">
-              <label for="login-password">Password</label
-              ><a routerLink="/pages/authentication/forgot-password-v2"><small>Forgot Password?</small></a>
+              <label for="login-password">Mot de passe</label
+              ><a routerLink="/pages/authentication/forgot-password-v2"><small>Mot de passe oublié?</small></a>
             </div>
             <div class="input-group input-group-merge form-password-toggle">
               <input
@@ -89,25 +89,24 @@
           <div class="form-group">
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" id="remember-me" type="checkbox" tabindex="3" />
-              <label class="custom-control-label" for="remember-me"> Remember Me</label>
+              <label class="custom-control-label" for="remember-me"> Rester connecté</label>
             </div>
           </div>
           <button [disabled]="loading" class="btn btn-primary btn-block" tabindex="4" rippleEffect>
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>S'authentifier
           </button>
         </form>
         <p class="text-center mt-2">
-          <span>New on our platform?</span
-          ><a routerLink="/pages/authentication/register-v2"><span>&nbsp;Create an account</span></a>
+          <span>Nouveau sur notre plateforme ?</span
+          ><a routerLink="/pages/authentication/register-v2"><span>&nbsp;Créer un compte</span></a>
         </p>
         <div class="divider my-2">
-          <div class="divider-text">or</div>
+          <div class="divider-text">Ou</div>
         </div>
         <div class="auth-footer-btn d-flex justify-content-center">
           <a class="btn btn-facebook" href="javascript:void(0)"><i data-feather="facebook"></i></a
-          ><a class="btn btn-twitter white" href="javascript:void(0)"><i data-feather="twitter"></i></a
-          ><a class="btn btn-google" href="javascript:void(0)"><i data-feather="mail"></i></a
-          ><a class="btn btn-github" href="javascript:void(0)"><i data-feather="github"></i></a>
+          ><a class="btn btn-instagram" href="javascript:void(0)"><i data-feather="instagram"></i></a
+          ><a class="btn btn-google" href="javascript:void(0)"><i data-feather="mail"></i></a>
         </div>
       </div>
     </div>

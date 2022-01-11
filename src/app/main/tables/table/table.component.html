@@ -4,12 +4,12 @@
     <app-content-header [contentHeader]="contentHeader"></app-content-header>
 
     <!-- Kitchen Sink Datatables -->
-    <section id="ngx-datatable-kitchen-sink" *ngIf="displayForm==false">
+    <section id="ngx-datatable-kitchen-sink" *ngIf="displayForm==false; addFormFournisseur">
       <core-card-snippet>
         <h4 class="card-title">Gestion fournisseurs</h4>
         <div class="row">
           <div class="col-12 mb-50">
-            <button type="button" class="btn btn-success ml-1" (click)="btnDisplayForm()" rippleEffect>
+            <button type="button" class="btn btn-success ml-1" (click)="openCreateModal(addFormFournisseur)" rippleEffect>
                <span [data-feather]="'plus'" [class]="'mr-0 mr-sm-1'"></span> Ajouter Fournisseur</button
             >
           </div>
@@ -287,7 +287,8 @@
     <!-- / Modal delete Fournisseur -->
 
     <!-- add fournisseur form ------------------------------------------------------------------------------->
-    
+
+    <ng-template  #addFormFournisseur let-modal>
     <section id ="horizontal-wizard-id"class="horizontal-wizard"  >
       <div id="stepper1" class="bs-stepper horizontal-wizard-example" >
         <div class="bs-stepper-header">
@@ -699,6 +700,7 @@
       </div>
       </div>
       </section>
+    </ng-template>
     <!-- add fournisseur form ------------------------------------------------------------------------------->
     
   </div>

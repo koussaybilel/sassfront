@@ -1,2 +1,14 @@
 @import '@core/scss/core.scss';
 @import './assets/scss/styles';
+.auth-wrapper .brand-logo .brand-text,.main-menu .navbar-header .navbar-brand .brand-text {
+    color : #D76994 !important;
+  }
+  .main-menu .navbar-header {
+    margin-bottom: 20px;
+}
+.main-menu.menu-light .navigation > li.active > a {
+  background: linear-gradient(
+    118deg, #d76a9470, rgb(216 110 150));
+        box-shadow: 0 0 10px 1px rgb(216 169 208 / 70%);
+        color: #fff;
+}
