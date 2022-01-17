@@ -138,7 +138,6 @@ export class TableComponent implements OnInit {
   // private
   private horizontalWizardStepper: Stepper;
   public _snippetCodeTypes = snippet.snippetCodeTypes;
-  private bsStepper;
 
  
    /**
@@ -191,7 +190,7 @@ console.log(this.problemDate)
 
   ngOnInit() {
     var today = new Date().toISOString().split('T')[0];
-document.getElementsByName("date_fin_contrat")[0].setAttribute('min', today);
+document.getElementsByName("date_fin_contrat")[0]?.setAttribute('min', today);
 console.log(today)
     this._datatablesService.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
       this.rows = response;
@@ -200,9 +199,10 @@ console.log(today)
       this.kitchenSinkRows = this.rows;
       this.exportCSVData = this.rows;
     });
-    this.horizontalWizardStepper = new Stepper(document.querySelector('#stepper1'), {});
+    if(document.querySelector('#stepper1')) {
+      this.horizontalWizardStepper = new Stepper(document.querySelector('#stepper1'), {});
 
-    this.bsStepper = document.querySelectorAll('.bs-stepper');
+    }
     // content header
     this.contentHeader = {
       headerTitle: 'Gestion Fournisseur',
@@ -238,6 +238,12 @@ openDeleteModal(fournisseur : Fournisseur, modalDelete)
       windowClass: 'modal modal-danger' });
     this.deleteFournisseur= fournisseur;
   }
+  openCreateModal(createModel) {
+    
+    this.modalService.open(createModel, {
+      centered: true,
+      size: 'lg' });
+    }
   btnDisplayForm= function () 
   {
     this.displayForm = true ; 

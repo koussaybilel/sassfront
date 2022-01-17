@@ -159,7 +159,11 @@ private options: GlobalConfig;
       size: 'lg' });
     this.editPersonnel= personnel;
     }
-    
+    openCreateModal(createModel) {
+      this.modalService.open(createModel, {
+        centered: true,
+        size: 'lg' });
+      }
   openDeleteModal(personnel : Personnel, modalDelete) {
     this.modalService.open(modalDelete, {
       centered: true,
