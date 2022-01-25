@@ -16,7 +16,7 @@ export class PersonnelService {
   private societeLivraisonID = environment.societeLivraisonID;
 
   constructor(private http: HttpClient) {}
-
+  
   public addPersonnel(personnel : Personnel): Observable<Personnel> {
     return this.http.post<Personnel>(`${this.apiServerUrl}/add-Personnel`, personnel);
   }

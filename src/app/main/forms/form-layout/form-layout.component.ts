@@ -48,7 +48,7 @@ export class FormLayoutComponent implements OnInit {
   public listReferenceForPdf ; 
   public allRowsSelected : boolean = false; 
   public test : number =0;
-  public colisRecords : Colis[]=[];
+  public colisRecords ;
   
   public gouvernoratList =[
     {value:'ARIANA', viewValue: 'ARIANA'},

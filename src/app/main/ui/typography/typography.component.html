@@ -8,7 +8,7 @@
         <h4 class="card-title">Gestion runsheet</h4>
         <div class="row">
           <div class="col-12 mb-50">
-            <button type="button" class="btn btn-success ml-1" (click)="btnDisplayForm()" rippleEffect>
+            <button type="button" class="btn btn-success ml-1" (click)="openCreateModal(addFormRunsheet)" rippleEffect>
               <span [data-feather]="'plus'" [class]="'mr-0 mr-sm-1'"></span>Ajouter Runsheet</button
             >
           </div>
@@ -90,14 +90,14 @@
     </section>
     <!--/ Kitchen Sink Datatables -->
 
-<ng-template #addFormRunsheet >   
+<ng-template #addFormRunsheet let-modal >   
     <!-- ADD FOrm Runsheet -->
     <section id="multiple-column-form">
       <div class="row match-height">
         <div class="col-12">
-          <core-card-snippet>
-            <h4 class="card-title">Ajouter Runsheet</h4>
-            <div class="card-body">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary" id="myModalLabel160">Ajouter Runsheet</h5>
+          </div>
               <form #addRunsheetForm="ngForm">
                 <div class="row">
                   <div class="form-group col-md-6">
@@ -179,14 +179,15 @@
                   </table>
                 </div>
                 <br>  
+                <div class="modal-footer">
               <button id="ajouterBtn" class="btn btn-primary btn-submit float-right mr-1" 
                 (click)="onAddRunsheet(addRunsheetForm)" rippleEffect 
                   >Ajouter</button>
                   <button class="btn btn-outline-secondary btn-submit float-right mr-1" 
-                  (click)="btnAnnulerForm()" rippleEffect >Annuler</button>
+                  (click)="modal.close('Accept click')" rippleEffect >Annuler</button>
+                </div>
               </form>
-            </div>
-          </core-card-snippet>
+            
         </div>
       </div>
     </section>

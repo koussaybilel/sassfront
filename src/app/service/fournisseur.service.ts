@@ -14,7 +14,7 @@ export class FournisseurService {
   constructor(private http: HttpClient) { }
 
   public getFournisseurBySocieteLiv(): Observable<Fournisseur[]> {
-    return this.http.get<Fournisseur[]>(`${this.apiServerUrl}/getAllFournisseurNonDeletedByIDSL/${this.societeLivraisonID}`);
+    return this.http.get<Fournisseur[]>(`${this.apiServerUrl}/getPersonnelBySocieteLiv/${this.societeLivraisonID}`);
   }
 
   public updateFournisseur(fournisseur : Fournisseur): Observable<Fournisseur> {

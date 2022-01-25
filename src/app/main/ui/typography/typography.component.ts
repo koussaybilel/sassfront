@@ -147,7 +147,11 @@ private options: GlobalConfig;
         }
       };
     }
-     
+    openCreateModal(createModel) {
+      this.modalService.open(createModel, {
+        centered: true,
+        size: 'lg' });
+      }
   btnDisplayForm () 
   {
      this.displayForm = true ; 

@@ -222,6 +222,7 @@ console.log(today)
         ]
       }
     };
+    
   }
 
 openUpdateModal(fournisseur : Fournisseur ,modalUpdate) {
@@ -230,6 +231,8 @@ openUpdateModal(fournisseur : Fournisseur ,modalUpdate) {
       size: 'lg'});
     this.editFournisseur= fournisseur;
   }
+
+  
   
 openDeleteModal(fournisseur : Fournisseur, modalDelete) 
   {
@@ -239,10 +242,11 @@ openDeleteModal(fournisseur : Fournisseur, modalDelete)
     this.deleteFournisseur= fournisseur;
   }
   openCreateModal(createModel) {
-    
+   
     this.modalService.open(createModel, {
       centered: true,
       size: 'lg' });
+     this.btnAnnulerForm();
     }
   btnDisplayForm= function () 
   {

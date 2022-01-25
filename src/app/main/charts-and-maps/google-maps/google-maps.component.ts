@@ -147,7 +147,11 @@ export class GoogleMapsComponent implements OnInit {
       }
     };
   }
-
+  openCreateModal(createModel) {
+    this.modalService.open(createModel, {
+      centered: true,
+      size: 'lg' });
+    }
   btnDisplayForm () {
       
     this.displayForm = true ; 

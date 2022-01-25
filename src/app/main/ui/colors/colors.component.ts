@@ -115,7 +115,11 @@ export class ColorsComponent implements OnInit {
       }
     };
   }
-
+  openCreateModal(createModel) {
+    this.modalService.open(createModel, {
+      centered: true,
+      size: 'lg' });
+    }
 btnDisplayForm () {
       
     this.displayForm = true ; 
@@ -155,16 +159,17 @@ public async onAddHub (HWForm : NgForm) :Promise<void> {
 
           (response : Hub )=> { 
           this._toastrService.success('Vous avez ajouté le hub '+ response.id_hub+' avec succès ! ',
-          'Ajout avec succès !',{ toastClass: 'toast ngx-toastr', closeButton: true,timeOut:2000 }).onHidden.subscribe(res => {HWForm.reset(); window.location.reload()});
+          'Ajout avec succès !',{ toastClass: 'toast ngx-toastr', closeButton: true,timeOut:2000 }).onHidden.subscribe(res => { window.location.reload() });
          // window.location.reload();
         },
 
           (error : HttpErrorResponse) => {console.log(error.message) ; });
+        //  this.modalService.dismissAll;
     } 
   else 
     {
           this._toastrService.error('Vérifier que vous avez bien rempli le formulaire ! ',
-          "Échec d'ajout !",{ toastClass: 'toast ngx-toastr', closeButton: true,timeOut:2000 }).onHidden.subscribe(res => window.location.reload());
+          "Échec d'ajout !",{ toastClass: 'toast ngx-toastr', closeButton: true,timeOut:2000 }).onHidden.subscribe(res =>{});
     }
 }
 
