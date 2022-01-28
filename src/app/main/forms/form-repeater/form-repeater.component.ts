@@ -56,8 +56,12 @@ export class FormRepeaterComponent implements OnInit {
   public isRequired :boolean = false ; 
 	
   userFile ;
+  userFile1 ;
+  userFile2 ;
   public imagePath;
   imgURL: any;
+  imgURL1: any;
+  imgURL2: any;
   public message: string;
 
   public editPersonnel : Personnel;
@@ -182,6 +186,7 @@ private options: GlobalConfig;
     if (event.target.files.length > 0)
         {
           const file = event.target.files[0];
+          console.log(file,"1");
           this.userFile = file;
     
           var mimeType = event.target.files[0].type;
@@ -198,6 +203,48 @@ private options: GlobalConfig;
           reader.onload = (_event) => { this.imgURL = reader.result; }
         }
 }
+onSelectImage1(event) {
+  if (event.target.files.length > 0)
+      {
+        const file = event.target.files[0];
+        console.log(file,"2");
+        this.userFile1 = file;
+  
+        var mimeType = event.target.files[0].type;
+        if (mimeType.match(/image\/*/) == null) 
+        {
+          this.message = "Only images are supported.";
+          return;
+        }
+
+        var reader = new FileReader();
+      
+        this.imagePath = file;
+        reader.readAsDataURL(file); 
+        reader.onload = (_event) => { this.imgURL1 = reader.result; }
+      }
+}
+onSelectImage2(event) {
+  if (event.target.files.length > 0)
+      {
+        const file = event.target.files[0];
+        console.log(file,"2");
+        this.userFile2 = file;
+  
+        var mimeType = event.target.files[0].type;
+        if (mimeType.match(/image\/*/) == null) 
+        {
+          this.message = "Only images are supported.";
+          return;
+        }
+
+        var reader = new FileReader();
+      
+        this.imagePath = file;
+        reader.readAsDataURL(file); 
+        reader.onload = (_event) => { this.imgURL2 = reader.result; }
+      }
+}
 
   public gestListHub()
   {
@@ -208,7 +255,7 @@ private options: GlobalConfig;
 
   async onAddPersonnelWithImage(HWForm : NgForm) {
   
-    if (this.userFile)
+    if (this.userFile||this.userFile1)
       {
             if (HWForm.form.valid === true)
               {
@@ -220,9 +267,11 @@ private options: GlobalConfig;
                 await this.hubService.getHubById(this.hubVar).toPromise().then(
                 (response : Hub)=>{hub = response })
                  personnel.hub= hub ; 
-            
+                  
                 formData.append('personnel',JSON.stringify(personnel));
                 formData.append('file',this.userFile);
+                formData.append('file1',this.userFile1);
+                formData.append('file2',this.userFile2);
                 
                 await this.personnelService.createData(formData).toPromise().then( data => {console.log(data) ;});
                 this._toastrService.success('Vous avez ajouté le personnel avec succès ! ',
@@ -305,6 +354,24 @@ private options: GlobalConfig;
       }
   }
   uploadImage(event) {
+    if (event.target.files.length > 0)
+    {
+      const file = event.target.files[0];
+      this.userFile = file;  
+      var mimeType = event.target.files[0].type;
+      if (mimeType.match(/image\/*/) == null) 
+        {
+            this.message = "Only images are supported.";
+            return;
+        }
+      var reader = new FileReader();
+      this.imagePath = file;
+      reader.readAsDataURL(file); 
+      reader.onload = (_event) => { this.imgURL = reader.result; }
+      this.updateFournisseurPhoto(this.editPersonnel);
+  }
+  }
+  uploadImage1(event) {
     if (event.target.files.length > 0)
     {
       const file = event.target.files[0];

@@ -90,7 +90,8 @@
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label class="form-label"  >Titre Hub</label>
-                    <input type="text" class="form-control" name= "titre" class="form-control" id="titre"placeholder="Saisir titre hub "
+                    <input
+                     type="text" class="form-control" name= "titre" class="form-control" id="titre"placeholder="Saisir titre hub "
                     [(ngModel)]="titreVar"
                     #titreVarRef="ngModel"
                     [class.error]="addHubForm.submitted && titreVarRef.invalid"
