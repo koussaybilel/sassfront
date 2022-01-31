@@ -441,21 +441,54 @@
                   [(ngModel)] ="editPersonnel.role_personnel" >
                   </ng-select>
                 </div>
-                <div class="form-group form-password-toggle col-md-6">
-                  <label class="form-label" >Permis</label>
-                  <input  class="form-control" [(ngModel)]  ="editPersonnel.permis" id="permis" name="permis"  type="text"/> 
-                </div>
+                <div class="form-group col-md-6">
+                  <fieldset class="form-group">
+                    <label for="file-upload-single">Permis</label>
+                    <div class="custom-file">
+                      <input
+                        type="file"
+                        accept="image/*" 
+                        class="custom-file-input"
+                        type="file"
+                        ng2FileSelect
+                        id="permis"
+                        name="permis" 
+                        [(ngModel)]  ="editPersonnel.permis"
+                        (change)="onSelectImage2($event)"
+                        
+                      />
+                      <label class="custom-file-label">{{editPersonnel.permis}}</label>
+                    </div>
+                  </fieldset>
+                  </div>
+               
               </div>
               <div class="row">
                 <div class="form-group form-password-toggle col-md-6">
                   <label class="form-label" for="password">Matricule véhicule</label>
                   <input class="form-control" [(ngModel)]  ="editPersonnel.matricule_veh" id="matricule_veh" name="matricule_veh" />
                 </div>
-                <div class="form-group form-password-toggle col-md-6">
-                  <label class="form-label" >Carte Grise</label>
-                  <input  class="form-control" [(ngModel)] ="editPersonnel.carte_grise" id="carte_grise" name="carte_grise"  type="text"/> 
-                  <input  class="form-control" [(ngModel)] ="editPersonnel.photo" id="photo" name="photo"  type="hidden"/>
-                </div>
+                <div class="form-group col-md-6">
+                  <fieldset class="form-group">
+                    <label for="file-upload-single">Carte Grise</label>
+                    <div class="custom-file">
+                      <input
+                        type="file"
+                        accept="image/*" 
+                        class="custom-file-input"
+                        type="file"
+                        ng2FileSelect
+                        id="carte_grise"
+                        name="carte_grise" 
+                        [(ngModel)]  ="editPersonnel.carte_grise"
+                        (change)="onSelectImage1($event)"
+                        
+                      />
+                      <label class="custom-file-label">{{editPersonnel.carte_grise}}</label>
+                    </div>
+                  </fieldset>
+                  </div>
+                
               </div>
               <div class="row">
                 <div class="form-group col-md-6">

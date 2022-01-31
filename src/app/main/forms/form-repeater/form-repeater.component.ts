@@ -62,6 +62,7 @@ export class FormRepeaterComponent implements OnInit {
   imgURL: any;
   imgURL1: any;
   imgURL2: any;
+  splitP: any[];
   public message: string;
 
   public editPersonnel : Personnel;
@@ -222,13 +223,13 @@ onSelectImage1(event) {
         this.imagePath = file;
         reader.readAsDataURL(file); 
         reader.onload = (_event) => { this.imgURL1 = reader.result; }
+        this.editPersonnel.carte_grise=file.name;
       }
 }
 onSelectImage2(event) {
   if (event.target.files.length > 0)
       {
         const file = event.target.files[0];
-        console.log(file,"2");
         this.userFile2 = file;
   
         var mimeType = event.target.files[0].type;
@@ -243,6 +244,7 @@ onSelectImage2(event) {
         this.imagePath = file;
         reader.readAsDataURL(file); 
         reader.onload = (_event) => { this.imgURL2 = reader.result; }
+        this.editPersonnel.permis=file.name;
       }
 }
 
